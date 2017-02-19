@@ -20,8 +20,11 @@ public class RFN {
     private static boolean ok;
 
     public static void main (String [] args) {
+        FirstRead firstR = new FirstRead();
+        firstR.firstReadTextFile();
+        firstR.nextFileWriteIsNewFilterWords();
 
-        open(); //open our file
+        open(); //open our new file
         RW();   //reading this file and count how much words in a file
         if (ok) { SOW(); }
         if (ok) { OutputW(); }
@@ -29,7 +32,7 @@ public class RFN {
 
     private static void open () {
         try {
-            sc = new Scanner (new File("text.txt")); // specify the path to the file
+            sc = new Scanner (new File("src/newFile.txt")); // specify the path to the file
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "file not found");
         }
@@ -38,6 +41,8 @@ public class RFN {
 
     private static void RW () {
         while (sc.hasNext()) {
+
+
             arrayF.add(sc.next());
         }
         countWordsInFile = arrayF.size();
